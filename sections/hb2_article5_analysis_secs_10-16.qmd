@@ -20,25 +20,25 @@ format:
       fig-align: center
       html-math-method: katex
       css: swart-20250327.css
-    pdf:
-      toc: true
-      number-sections: true
-      colorlinks: true
-      papersize: letter
-      geometry:
-        - margin=1in
-      fig-width: 12
-      fig-height: 10
-      fig-pos: 'H'
-    typst:
-      toc: true
-      fig-width: 12
-      fig-height: 10
-      keep-tex: true
-      prefer-html: true
-      echo: false
-      warning: false
-      message: false
+    # pdf:
+    #   toc: true
+    #   number-sections: true
+    #   colorlinks: true
+    #   papersize: letter
+    #   geometry:
+    #     - margin=1in
+    #   fig-width: 12
+    #   fig-height: 10
+    #   fig-pos: 'H'
+    # typst:
+    #   toc: true
+    #   fig-width: 12
+    #   fig-height: 10
+    #   keep-tex: true
+    #   prefer-html: true
+    #   echo: false
+    #   warning: false
+    #   message: false
 ---
 
 ```{r}
@@ -112,7 +112,6 @@ In the end, early childhood education is being changed from a system that was co
 
 ```{r}
 #| label: main-analysis-table-article5-sections10-17-updated
-#| echo: false
 #| warning: false
 #| message: false
 
@@ -384,7 +383,6 @@ article5_sections10_17_main_table_updated
 
 ```{r}
 #| label: supplemental-analysis-article5-sections10-17-updated
-#| echo: false
 #| warning: false
 #| message: false
 
@@ -629,7 +627,6 @@ datatable(
 
 ```{r}
 #| label: negative-results-coding-key-article5-sections10-17-updated
-#| echo: false
 #| message: false
 #| warning: false
 
