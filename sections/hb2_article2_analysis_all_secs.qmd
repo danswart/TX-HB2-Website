@@ -1,7 +1,7 @@
 ---
 title: "Texas HB2 Article 2: Educator Preparation and Teacher Rights"
 author: "Dan Swart and Claude Sonnet 4.0"
-description: "Re-analysis of Article 2 (Educator Preparation and Teacher Rights) using updated 7-code evaluation framework. Analysis covers Sections 2.01 through 2.24, focusing on educator preparation programs, certification requirements, and partnership programs. Document spans pages 6-19 of legislative text."
+description: "Analysis of Article 2 (Educator Preparation and Teacher Rights). Analysis covers Sections 2.01 through 2.24, focusing on educator preparation programs, certification requirements, and partnership programs. Document spans pages 6-19 of legislative text."
 format:
     html:
       toc: true
@@ -61,7 +61,7 @@ library(dplyr)      # For data wrangling
 <br>
 <br>
 
-## Executive Summary: Good Intentions Will Not Produce Desired Results
+## Opinionated Executive Summary: Good Intentions Do Not Produce Desired Results
 
 The policies in HB2 Article 2, which focus on teacher preparation and certification, might seem like good ideas, but they can actually hurt teaching. These policies are called "innovative" and "supportive," but they are likely to cause more problems.  
 
@@ -557,9 +557,9 @@ datatable(
 <br>
 <br>
 
-### Key List of Likely Negative Results (Revised 7-Code Framework)
+### Key List of Likely Negative Results
 
-#### The evaluation codes are based on these axioms:
+#### The evaluation codes below are based on these axioms:
 
 - Central planning (one size fits all) degrades everyone's performance
   - Makes nearly every district action a legal matter
