@@ -1,0 +1,18 @@
+project:
+  type: website
+
+website:
+  title: "Home"
+  open-graph: true # https://quarto.org/docs/websites/website-tools.html#open-graph
+  page-footer: "No content, or portion thereof, represents an official position of any school district or school official"
+  navbar:
+    left:
+      - text: HB2 Section by Section
+        href: hb2_section_by_section.qmd
+
+format:
+  html:
+    theme: [trestles, swart-20250327.css]
+
+
+

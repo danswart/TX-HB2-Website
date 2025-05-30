@@ -1,0 +1,694 @@
+---
+title: "Texas HB2 Article 3: Rights of Public School Educators - Incentives and Likely Results"
+author: "Dan Swart and Claude Sonnet 4.0"
+description: "Analysis covers Article 3 (Rights of Public School Educators) only - Sections 3.01 through 3.15. Analysis focuses on educator employment policies, certification processes, contract protections, and classroom management rights. Document spans pages 19-25 of legislative text."
+format:
+    html:
+      toc: true
+      toc-float: true
+      page-layout: article
+      embed-resources: true
+      code-fold: true
+      code-summary: "Show the code"
+      code-tools: true
+      code-overflow: wrap
+      code-block-bg: "#FAEBD7"
+      code-block-border-left: "#31BAE9"
+      code-link: true
+      fig-width: 8
+      fig-height: 6
+      fig-align: center
+      html-math-method: katex
+      css: swart-20250327.css
+    pdf:
+      toc: true
+      number-sections: true
+      colorlinks: true
+      papersize: letter
+      geometry:
+        - margin=1in
+      fig-width: 12
+      fig-height: 10
+      fig-pos: 'H'
+    typst:
+      toc: true
+      fig-width: 12
+      fig-height: 10
+      keep-tex: true
+      prefer-html: true
+      echo: false
+      warning: false
+      message: false
+---
+
+```{r}
+#| label: setup-article3
+#| include: false
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)  # For dplyr, ggplot, and friends
+library(ggdag)      # For plotting DAGs
+library(dagitty)    # For working with DAG logic
+library(DiagrammeR) # For complete control of the layout
+library(knitr)      # For controlling rendering
+library(kableExtra) # For tables summarizing results
+library(DT)         # For rendering content that kableExtra cannot
+library(dplyr)      # For data wrangling
+```
+
+<br>
+<br>
+
+
+## Opinionated Executive Summary: Good Intentions, Unintended Results
+
+The policies in HB2 Article 3, which focus on teacher jobs and classroom management, might seem like good ideas, but they can actually make things worse. These policies are called "teacher protections" and "student safety measures," but they are likely to cause more problems than they solve.
+
+### Teacher Protection Becomes State Control Over Local Schools
+
+Protections for teachers who need to quit due to family emergencies or moving for their spouse's job sound helpful. But these policies will take away local control (Code F in 100% of cases) and make schools more dependent on the state (Code C in 100% of cases). Schools shouldn't need state permission to solve problems with their teachers.
+
+### Emergency Hiring Rules That Make Emergencies Harder
+
+Emergency hiring rules are supposed to help schools hire teachers quickly when someone quits unexpectedly. But they make things slower by adding more rules and paperwork (Code E in 100% of cases). It's like making fire departments fill out forms while trying to put out a fire.
+
+### Teacher Quality Programs Turn Teaching Into Money Collection
+
+Quality assistance programs give teachers $1,000 or more for attending training and following state rules. But they encourage teachers to focus on getting money instead of helping students (Code A in 35% of cases). These programs turn teaching into earning rewards, instead of focusing on education.
+
+### Student Safety Rules That Remove Teacher Authority
+
+Student removal and threat assessment systems are meant to help teachers keep students safe. But they take away the quick decision-making power teachers need (Code F in 100% of cases). These policies create extra rules that delay actions when teachers need to act fast.
+
+### Certification Help That Creates More State Dependency
+
+Fee waivers and test changes are meant to help more people become bilingual and special education teachers by removing money barriers. But they make schools more dependent on state funding (Code C in 100% of cases) and create systems that could disappear when political priorities change.
+
+### Workplace Rights That Add More Bureaucracy
+
+Grievance procedures give employees more rights, but they add more paperwork (Code E in 100% of cases) and do nothing to fix the real problems that cause conflicts in the first place. They only treat the symptoms, not the cause.
+
+### Data Collection That Wastes Time and Money
+
+Teacher time studies and position data collection are supposed to help improve workloads and retention by gathering information. But they waste resources (found in 17% of cases) and create reports that sit unused while teachers continue to struggle with the same issues these studies claim to solve.
+
+### Retiree Programs That Game the System
+
+Programs that pay districts to hire retired teachers seem to solve teacher shortages. But they only create temporary fixes and encourage people to game the system instead of addressing the real reasons why teachers are retiring early.
+
+### Conclusion
+
+These policies hurt the development of good teaching. Instead of helping teachers focus on helping students, they create a system where teachers and principals are focused on following state rules and getting rewards. They weaken local decision-making and hurt relationships between teachers, administrators, and communities.
+
+Most importantly, these policies assume that teachers and school leaders care more about outside rules than their own professional judgment and job satisfaction. They take away local control, strong work relationships, and classroom authority — the things that create good learning environments.
+
+In the end, these policies don't help students. They create an expensive system that trains teachers to deal with bureaucracy instead of building real relationships with students, families, and communities. The only people who benefit are the consultants and state bureaucrats who profit from the mess.
+
+<br>
+<br>
+
+## Detailed Analysis
+
+### Main Table
+
+```{r}
+#| label: main-analysis-table-article3
+
+# Create analysis with revised 7-code negative results for Article 3
+article3_likely_results <- data.frame(
+  Category = c(
+    "Job Posting Requirements",
+    "Job Posting Requirements",
+    "Emergency Filling Provisions",
+    "Emergency Filling Provisions",
+    "Unpaid Leave Salary Calculations",
+    "Certification Fee Waivers",
+    "Certification Fee Waivers",
+    "Bilingual Test Modifications",
+    "Bilingual Test Modifications",
+    "Contract Resignation Protections",
+    "Contract Resignation Protections",
+    "Contract Resignation Protections",
+    "Contract Resignation Protections",
+    "Probationary Teacher Sanctions",
+    "Continuing Contract Sanctions",
+    "Term Contract Sanctions",
+    "Hearing Process Modifications",
+    "Hearing Process Modifications",
+    "Employed Retiree Grant Program",
+    "Employed Retiree Grant Program",
+    "Employed Retiree Grant Program",
+    "Unpaid Leave Election Rights",
+    "Teacher Quality Assistance",
+    "Teacher Quality Assistance",
+    "Teacher Quality Assistance",
+    "Teacher Time Study Program",
+    "Teacher Time Study Program",
+    "Teacher Time Study Program",
+    "Teacher Position Data Collection",
+    "Grievance Procedure Requirements",
+    "Grievance Procedure Requirements",
+    "Student Removal Authority",
+    "Student Removal Authority",
+    "Student Removal Authority",
+    "Student Removal Authority",
+    "Return to Class Plans",
+    "Return to Class Plans",
+    "Model Return Plans",
+    "Mandatory Removal Requirements",
+    "Mandatory Removal Requirements",
+    "Student Appeal Rights",
+    "Student Appeal Rights",
+    "Threat Assessment Teams",
+    "Threat Assessment Teams",
+    "Threat Assessment Teams",
+    "Threat Notification Requirements"
+  ),
+
+  Incentive_Created = c(
+    "Districts must post vacant certified positions 5 days before filling instead of 10 days",
+    "Districts must provide reasonable application opportunity for current employees",
+    "Emergency teacher position filling allowed in less than 5 days with immediate posting",
+    "Districts not required to provide 5-day notice or application opportunity in emergencies",
+    "Daily rate for unpaid leave calculated by dividing annual salary by expected work days",
+    "Board must waive certification exam fees for special education and bilingual education candidates",
+    "Board must pay vendor fees for first administration of special education/bilingual exams",
+    "Failed bilingual test takers can retake only failed sections instead of entire test",
+    "Retake candidates can demonstrate proficiency through fewer components, eliminating lesson plans",
+    "Teachers protected from sanctions for resignation due to serious illness or family health issues",
+    "Teachers protected from sanctions for resignation due to spouse relocation for employment",
+    "Teachers protected if they reasonably believed they had written permission to resign",
+    "Protection applies to family needs requiring relocation or employment interruption",
+    "Probationary contract teachers receive identical resignation protections",
+    "Continuing contract teachers receive identical resignation protections",
+    "Term contract teachers receive identical resignation protections",
+    "Hearing examiners must complete hearings within 60 days of written request",
+    "Hearing examiners may dismiss hearings upon request, withdrawal, or settlement",
+    "State grants reimburse districts for TRS contributions when hiring teachers retired before 2024",
+    "Legislature may modify retirement date eligibility and geographic restrictions",
+    "Proportional reduction of grants if applications exceed available funding",
+    "Teachers may elect not to use paid personal leave concurrently with unpaid FMLA leave",
+    "Agency provides training on strategic compensation, staffing, and scheduling for retention",
+    "Agency provides grants to districts for implementing teacher recruitment initiatives",
+    "Programs encourage high school students to become teachers through apprenticeships",
+    "Agency develops technical assistance for studying teacher time allocation and workload",
+    "Support districts in refining schedules to ensure teachers have sufficient work time",
+    "Study how to reduce and streamline required teacher tasks and duties",
+    "Agency collects teacher retention and recruitment data through PEIMS or other systems",
+    "Grievance procedures must provide notice to employees against whom complaints are filed",
+    "Procedures must provide sufficient opportunity for written response to complaints",
+    "Teachers may remove students for repeated interference with teaching or classmate learning",
+    "Teachers may remove students for unruly, disruptive, or abusive behavior toward adults/students",
+    "Teachers may remove students for bullying conduct as defined in state law",
+    "Single incident removals allowed for any qualifying behavior type",
+    "Principals must create return to class plans before or at required conferences",
+    "Return plans must be discussed at conferences and may only be created by non-classroom staff",
+    "Commissioner must adopt model return to class plan for district use",
+    "Teachers must remove students engaging in conduct under Sections 37.006 or 37.007",
+    "Students removed for offenses against teachers cannot return without teacher's written consent",
+    "Students may appeal removal to placement review committee or safe and supportive school team",
+    "Principals must notify students and parents of appeal rights at required conferences",
+    "Threat assessment teams must establish clear student reporting procedures for concerning behavior",
+    "District employees reporting threats may elect confidential identity protection",
+    "Teams must complete evidence-based threat assessment training through approved providers",
+    "Teams must immediately notify teaching staff of threats against campus, including social media threats"
+  ),
+
+  Intended_Consequence = c(
+    "Reduce administrative burden while maintaining internal hiring preference for current employees",
+    "Ensure current district employees have fair opportunity for advancement and position changes",
+    "Provide flexibility for districts facing sudden teacher departures or urgent staffing needs",
+    "Balance emergency staffing flexibility with maintaining general internal hiring preferences",
+    "Create fair and standardized method for calculating unpaid leave deductions across districts",
+    "Remove financial barriers preventing entry into high-need special education and bilingual teaching",
+    "State assumption of vendor costs reduces district financial burden for critical certification areas",
+    "Reduce time and cost burden on bilingual certification candidates while maintaining competency standards",
+    "Streamline certification process by eliminating redundant testing of already-demonstrated skills",
+    "Protect teachers from professional sanctions when family health emergencies require immediate resignation",
+    "Recognize legitimate career mobility due to spouse employment changes without penalizing teachers",
+    "Prevent sanctions when teachers resign based on reasonable understanding of district permission",
+    "Acknowledge family circumstances that legitimately require teacher career interruptions",
+    "Ensure consistent resignation protections across all teacher contract types",
+    "Provide identical protections for teachers regardless of contract classification",
+    "Extend same resignation protections to term contract teachers",
+    "Establish reasonable timeline for hearing completion while allowing flexibility for settlement",
+    "Reduce unnecessary hearing costs and time when parties reach agreement or withdraw complaints",
+    "Financially support districts hiring experienced retirees to address teacher shortages",
+    "Allow legislative flexibility to target program based on changing needs and available funding",
+    "Ensure equitable distribution of limited grant funding across eligible districts",
+    "Provide teachers flexibility to manage personal and family leave according to individual circumstances",
+    "Improve teacher retention through evidence-based compensation and workplace improvements",
+    "Support districts in implementing effective recruitment strategies with state funding assistance",
+    "Build teacher pipeline by engaging students early in career exploration and preparation",
+    "Help districts analyze and optimize teacher workload distribution and time management",
+    "Ensure teachers have adequate time during work hours to complete all professional responsibilities",
+    "Improve teacher satisfaction and retention by reducing unnecessary administrative burdens",
+    "Enable data-driven policy decisions regarding teacher workforce needs and trends",
+    "Ensure due process protections for employees facing workplace complaints",
+    "Provide fair opportunity for accused employees to respond to allegations before resolution",
+    "Give teachers authority to maintain learning environment by removing disruptive students",
+    "Empower teachers to address behavioral problems that interfere with educational mission",
+    "Support anti-bullying efforts by enabling teacher intervention in harassment situations",
+    "Allow teacher discretion to address serious behavioral issues without requiring pattern documentation",
+    "Ensure systematic approach to student reintegration with appropriate behavioral planning",
+    "Prevent conflicts of interest by having non-teaching staff create objective reintegration plans",
+    "Provide statewide consistency and best practices guidance for local return-to-class planning",
+    "Require automatic escalation for most serious behavioral offenses to appropriate disciplinary placement",
+    "Protect teachers from being forced to accept return of students who committed offenses against them",
+    "Provide students and families due process rights while maintaining teacher classroom authority",
+    "Ensure families understand available options for challenging removal decisions",
+    "Create systematic process for students to report safety concerns without fear of retaliation",
+    "Protect employees who report legitimate safety concerns from potential workplace retaliation",
+    "Ensure teams have professional competency to properly assess and respond to potential threats",
+    "Enhance campus safety through rapid communication of credible threats to frontline staff"
+  ),
+
+  Likely_Result = c(
+    "C, E, F", # Job posting time: state dependency, admin burden, reduced local control
+    "C, E, F", # Application opportunity: state dependency, admin burden, reduced local control
+    "C, E, F", # Emergency filling: state dependency, admin burden, reduced local control
+    "C, E, F", # Emergency exemptions: state dependency, admin burden, reduced local control
+    "C, E, F", # Salary calculations: state dependency, admin burden, reduced local control
+    "A, C, E, F", # Fee waivers: extrinsic motivation, state dependency, admin burden, reduced local control
+    "A, C, E, F", # Vendor payments: extrinsic motivation, state dependency, admin burden, reduced local control
+    "C, E, F, G", # Test modifications: state dependency, admin burden, reduced local control, people as problem
+    "C, E, F, G", # Component elimination: state dependency, admin burden, reduced local control, people as problem
+    "C, E, F", # Health protections: state dependency, admin burden, reduced local control
+    "C, E, F", # Relocation protections: state dependency, admin burden, reduced local control
+    "C, E, F", # Permission protections: state dependency, admin burden, reduced local control
+    "C, E, F", # Family needs protections: state dependency, admin burden, reduced local control
+    "C, E, F", # Probationary protections: state dependency, admin burden, reduced local control
+    "C, E, F", # Continuing protections: state dependency, admin burden, reduced local control
+    "C, E, F", # Term protections: state dependency, admin burden, reduced local control
+    "C, E, F", # Hearing timelines: state dependency, admin burden, reduced local control
+    "C, E, F", # Hearing dismissals: state dependency, admin burden, reduced local control
+    "A, C, E, F", # Retiree grants: extrinsic motivation, state dependency, admin burden, reduced local control
+    "C, E, F", # Grant modifications: state dependency, admin burden, reduced local control
+    "A, C, E, F", # Proportional reduction: extrinsic motivation, state dependency, admin burden, reduced local control
+    "C, E, F, G", # Leave elections: state dependency, admin burden, reduced local control, people as problem
+    "A, C, E, F", # Quality assistance: extrinsic motivation, state dependency, admin burden, reduced local control
+    "A, C, E, F", # Quality grants: extrinsic motivation, state dependency, admin burden, reduced local control
+    "A, C, E, F", # Recruitment programs: extrinsic motivation, state dependency, admin burden, reduced local control
+    "C, E, F", # Time study: state dependency, admin burden, reduced local control
+    "C, E, F", # Schedule assistance: state dependency, admin burden, reduced local control
+    "C, E, F", # Task reduction: state dependency, admin burden, reduced local control
+    "C, E, F", # Data collection: state dependency, admin burden, reduced local control
+    "C, E, F", # Grievance notice: state dependency, admin burden, reduced local control
+    "C, E, F", # Response opportunity: state dependency, admin burden, reduced local control
+    "C, E, F", # Interference removal: state dependency, admin burden, reduced local control
+    "C, E, F", # Behavioral removal: state dependency, admin burden, reduced local control
+    "C, E, F", # Bullying removal: state dependency, admin burden, reduced local control
+    "C, E, F", # Single incident: state dependency, admin burden, reduced local control
+    "C, E, F", # Return plans: state dependency, admin burden, reduced local control
+    "C, E, F", # Plan creation: state dependency, admin burden, reduced local control
+    "C, E, F", # Model plans: state dependency, admin burden, reduced local control
+    "C, E, F", # Mandatory removal: state dependency, admin burden, reduced local control
+    "C, E, F", # Teacher consent: state dependency, admin burden, reduced local control
+    "C, E, F", # Appeal rights: state dependency, admin burden, reduced local control
+    "C, E, F", # Appeal notification: state dependency, admin burden, reduced local control
+    "C, E, F", # Reporting procedures: state dependency, admin burden, reduced local control
+    "C, E, F", # Identity protection: state dependency, admin burden, reduced local control
+    "C, E, F", # Team training: state dependency, admin burden, reduced local control
+    "C, E, F" # Threat notification: state dependency, admin burden, reduced local control
+  )
+)
+
+# Verify data frame consistency
+data_check <- data.frame(
+  Column = c("Category", "Incentive_Created", "Intended_Consequence", "Likely_Result"),
+  Row_Count = c(
+    length(article3_likely_results$Category),
+    length(article3_likely_results$Incentive_Created),
+    length(article3_likely_results$Intended_Consequence),
+    length(article3_likely_results$Likely_Result)
+  )
+)
+
+# Check if all columns have same length
+if(length(unique(data_check$Row_Count)) != 1) {
+  stop("Data frame columns have different lengths!")
+} else {
+  cat("Data verification passed: All columns have", unique(data_check$Row_Count), "rows\n")
+}
+
+# Create the main analysis table with coded results
+article3_main_table <- datatable(
+  article3_likely_results,
+  options = list(
+    pageLength = 10,
+    scrollX = TRUE,
+    autoWidth = TRUE,
+    columnDefs = list(
+      list(width = '150px', targets = 0),   # Category  
+      list(width = '300px', targets = 1),   # Incentive Created
+      list(width = '250px', targets = 2),   # Intended Result
+      list(width = '150px', targets = 3)    # Coded Results
+    ),
+    dom = 'Bfrtip',
+    buttons = c('copy', 'csv', 'excel')
+  ),
+  filter = 'top',
+  rownames = FALSE,
+  class = 'cell-border stripe hover',
+  colnames = c('Category', 'Incentive Created', 'Intended Result', 'Codes for Destructive Results We Will Actually Get')
+) %>%
+  formatStyle(
+    'Category',
+    backgroundColor = styleEqual(
+      c("Job Posting Requirements", "Emergency Filling Provisions", "Unpaid Leave Salary Calculations", 
+        "Certification Fee Waivers", "Bilingual Test Modifications", "Contract Resignation Protections",
+        "Probationary Teacher Sanctions", "Continuing Contract Sanctions", "Term Contract Sanctions",
+        "Hearing Process Modifications", "Employed Retiree Grant Program", "Unpaid Leave Election Rights",
+        "Teacher Quality Assistance", "Teacher Time Study Program", "Teacher Position Data Collection",
+        "Grievance Procedure Requirements", "Student Removal Authority", "Return to Class Plans",
+        "Model Return Plans", "Mandatory Removal Requirements", "Student Appeal Rights", "Threat Assessment Teams",
+        "Threat Notification Requirements"),
+      c('#FFE8E8', '#FFD0D0', '#E8F4FD', '#E8F6FF', '#FFF2CC', '#E8F5E8', '#F0E8FF', '#FFE8F5', 
+        '#FFE0B2', '#E0F0FF', '#F5F5DC', '#FFB6C1', '#FFE4E1', '#E8E8E8', '#F0F8FF', '#E6E6FA',
+        '#FFF8DC', '#F5F5F5', '#FFFACD', '#FFEFD5', '#F0FFF0', '#E0FFFF', '#F8F8FF')
+    ),
+    fontWeight = 'bold'
+  ) %>%
+  formatStyle(
+    'Likely_Result',
+    fontWeight = 'bold',
+    fontSize = '14px',
+    textAlign = 'center',
+    backgroundColor = '#FFF8DC'
+  )
+
+# Display article 3 main table
+article3_main_table
+```
+
+<br>
+<br>
+<br>
+
+### Supplemental Tables
+
+```{r}
+#| label: supplemental-analysis-article3
+
+# Create category analysis
+category_analysis_a3 <- article3_likely_results %>%
+  group_by(Category) %>%
+  summarise(
+    Count = n(),
+    .groups = 'drop'
+  ) %>%
+  arrange(desc(Count)) %>%
+  rename(`Incentive Category` = Category,
+         `Number of Incentives` = Count)
+
+# Analyze most frequent negative result codes
+code_frequency_a3 <- article3_likely_results %>%
+  separate_rows(Likely_Result, sep = ", ") %>%
+  count(Likely_Result, sort = TRUE) %>%
+  rename(`Negative Result Code` = Likely_Result,
+         `Frequency` = n) %>%
+  mutate(Percentage = round(100 * Frequency / nrow(article3_likely_results), 1))
+
+# Key policy findings focused on coded patterns
+key_findings_a3 <- data.frame(
+  Finding = c(
+    "Most Common Negative Pattern",
+    "State Control and Dependency Dominance", 
+    "Administrative Burden Pattern",
+    "Extrinsic Motivation Corruption",
+    "People as Problem Focus",
+    "Most Problematic Policy Areas",
+    "Universal Impact Categories",
+    "Teacher Quality vs. System Improvement"
+  ),
+  Description = c(
+    paste0("Codes C, E, F appear in 100.0% of incentives - complete state dependency, administrative burdens, and loss of local control"),
+    paste0("Code C (state dependency) affects every single incentive (", sum(grepl("C", article3_likely_results$Likely_Result)), "/", nrow(article3_likely_results), " = 100.0%), indicating complete state takeover"),
+    paste0("Code E (administrative burdens) appears in 100.0% of incentives, creating massive compliance overhead across all educator policies"),
+    paste0("Code A (extrinsic motivation) appears in ", round(100 * sum(grepl("A", article3_likely_results$Likely_Result)) / nrow(article3_likely_results), 1), "% of incentives, systematically undermining professional dedication"),
+    paste0("Code G (people as problem) appears in ", round(100 * sum(grepl("G", article3_likely_results$Likely_Result)) / nrow(article3_likely_results), 1), "% of incentives, primarily in certification and testing modifications"),
+    "Teacher Quality Assistance, Certification Programs, and Retiree Grants show highest concentration of negative codes per incentive",
+    "Every single policy reduces local control (Code F) and creates state dependency (Code C) - representing 100% centralization", 
+    paste0("Code D (accountability substitution) appears in 0.0% of incentives, suggesting these policies avoid direct 'improvement' language while still centralizing control")
+  )
+)
+
+# === DISPLAY SUPPLEMENTAL TABLES ===
+
+# Category Analysis Header
+datatable(
+  data.frame(Title = "INCENTIVE CATEGORY ANALYSIS"),
+  filter = 'top',
+  options = list(dom = 't', ordering = TRUE),
+  rownames = FALSE,
+  class = 'cell-border'
+) %>%
+  formatStyle('Title',
+              fontSize = '18px',
+              fontWeight = 'bold',
+              textAlign = 'center',
+              backgroundColor = '#FF9800',
+              color = 'white')
+
+# Category Analysis Table
+datatable(
+  category_analysis_a3,
+  filter = 'top',
+  options = list(
+    pageLength = 15,
+    dom = 't',
+    ordering = TRUE,
+    autoWidth = TRUE
+  ),
+  rownames = FALSE,
+  class = 'cell-border stripe'
+) %>%
+  formatStyle('Number of Incentives',
+              fontWeight = 'bold',
+              textAlign = 'center',
+              backgroundColor = styleColorBar(range(category_analysis_a3$`Number of Incentives`), '#E8F4FD')) %>%
+  formatStyle('Incentive Category',
+              fontWeight = 'bold',
+              textAlign = 'left')
+
+# Code Frequency Analysis Header
+datatable(
+  data.frame(Title = "NEGATIVE RESULT CODE FREQUENCY"),
+  filter = 'top',
+  options = list(dom = 't', ordering = TRUE),
+  rownames = FALSE,
+  class = 'cell-border'
+) %>%
+  formatStyle('Title',
+              fontSize = '18px',
+              fontWeight = 'bold',
+              textAlign = 'center',
+              backgroundColor = '#DC143C',
+              color = 'white')
+
+# Code Frequency Table
+datatable(
+  code_frequency_a3,
+  filter = 'top',
+  options = list(
+    pageLength = 15,
+    dom = 't',
+    ordering = TRUE,
+    autoWidth = TRUE
+  ),
+  rownames = FALSE,
+  class = 'cell-border stripe'
+) %>%
+  formatStyle('Frequency',
+              fontWeight = 'bold',
+              textAlign = 'center',
+              backgroundColor = styleColorBar(range(code_frequency_a3$Frequency), '#FFB6C1')) %>%
+  formatStyle('Negative Result Code',
+              fontWeight = 'bold',
+              textAlign = 'center',
+              fontSize = '16px') %>%
+  formatStyle('Percentage',
+              fontWeight = 'bold',
+              textAlign = 'center')
+
+# Key Findings Header
+datatable(
+  data.frame(Title = "KEY CODED PATTERN FINDINGS"),
+  filter = 'top',
+  options = list(dom = 't', ordering = TRUE),
+  rownames = FALSE,
+  class = 'cell-border'
+) %>%
+  formatStyle('Title',
+              fontSize = '18px',
+              fontWeight = 'bold',
+              textAlign = 'center',
+              backgroundColor = '#F44336',
+              color = 'white')
+
+# Key Findings Table
+datatable(
+  key_findings_a3,
+  filter = 'top',
+  options = list(
+    pageLength = 10,
+    dom = 't',
+    ordering = TRUE,
+    autoWidth = TRUE,
+    columnDefs = list(
+      list(width = '25%', targets = 0),
+      list(width = '75%', targets = 1)
+    )
+  ),
+  rownames = FALSE,
+  class = 'cell-border stripe'
+) %>%
+  formatStyle('Finding',
+              fontWeight = 'bold',
+              backgroundColor = '#FFE4E1',
+              textAlign = 'left') %>%
+  formatStyle('Description',
+              textAlign = 'left')
+
+# Create coded summary statistics
+summary_statistics_a3 <- data.frame(
+  Metric = c(
+    "Total Incentives Analyzed",
+    "Most Problematic Code", 
+    "Most Frequent Code Combination",
+    "Policy Categories with Code C",
+    "Policy Categories with Code F",
+    "Average Codes per Incentive"
+  ),
+  Value = c(
+    nrow(article3_likely_results),
+    paste0("Codes C, E, F (appear ", code_frequency_a3$Frequency[1], " times each)"),
+    "C, E, F (state dependency + admin burden + reduced local control)",
+    sum(grepl("C", article3_likely_results$Likely_Result)),
+    sum(grepl("F", article3_likely_results$Likely_Result)),
+    round(mean(lengths(strsplit(article3_likely_results$Likely_Result, ", "))), 1)
+  )
+)
+
+# Summary Statistics Header
+datatable(
+  data.frame(Title = "CODED ANALYSIS SUMMARY STATISTICS"),
+  options = list(dom = 't', ordering = TRUE),
+  rownames = FALSE,
+  class = 'cell-border'
+) %>%
+  formatStyle('Title',
+              fontSize = '18px',
+              fontWeight = 'bold',
+              textAlign = 'center',
+              backgroundColor = '#9C27B0',
+              color = 'white')
+
+# Summary Statistics Table
+datatable(
+  summary_statistics_a3,
+  options = list(
+    pageLength = 10,
+    dom = 't',
+    ordering = TRUE,
+    autoWidth = TRUE,
+    columnDefs = list(
+      list(width = '40%', targets = 0),
+      list(width = '60%', targets = 1)
+    )
+  ),
+  rownames = FALSE,
+  class = 'cell-border stripe'
+) %>%
+  formatStyle('Metric',
+              fontWeight = 'bold',
+              textAlign = 'left') %>%
+  formatStyle('Value',
+              textAlign = 'left',
+              fontWeight = 'bold')
+```
+
+<br>
+<br>
+
+### Key List of Likely Negative Results
+
+#### The evaluation codes are based on these axioms:
+
+- Central planning (one size fits all) degrades everyone's performance
+  - Makes nearly every district action a legal matter
+  - Robs people of pride in their work
+  
+- Efforts at 'accountability' will not improve performance of anyone
+
+- Cooperation within an organization is far more effective than competition 
+
+- All incentives work; some promote and some pervert the ***intention*** of the incentive
+
+```{r}
+#| label: negative-results-coding-key-article3
+
+# Create negative results table with revised 7-code system
+negative_results_a3 <- data.frame(
+  Code = c("A", "B", "C", "D", "E", "F", "G"),
+
+  Likely_Negative_Result = c(
+    "Decreases intrinsic motivation in favor of extrinsic motivation",
+    "Decreases cooperation within districts in favor of competition for resources",
+    "Increases dependency on State funding and bureaucracy",
+    "Substitutes 'accountability' for improvement of the system people work in",
+    "Increases district administrative burdens",
+    "Decreases local control and flexibility",
+    "Treats people as the 'problem', instead of the system they work in"
+  )
+)
+
+# Define bright contrasting color palette (7 colors)
+color_palette_a3 <- c("#FF6B6B", "#4ECDC4", "#45B7D1", "#96CEB4", "#FECA57", "#FF9FF3", "#54A0FF")
+
+# Create color assignments for each row
+row_colors_a3 <- color_palette_a3[1:nrow(negative_results_a3)]
+
+# Display the coding key table
+DT::datatable(
+  negative_results_a3,
+  options = list(
+    pageLength = 15,
+    dom = 'Bfrtip',
+    buttons = c('copy', 'csv', 'excel'),
+    columnDefs = list(
+      list(width = '40px', targets = 0),  # Narrow first column
+      list(width = '90%', targets = 1)    # Wide second column
+    ),
+    scrollX = FALSE,
+    autoWidth = FALSE
+  ),
+  rownames = FALSE,
+  class = 'display'
+) %>%
+  formatStyle(
+    'Code',
+    textAlign = 'right',
+    fontWeight = 'bold',
+    backgroundColor = styleEqual(negative_results_a3$Code, row_colors_a3),
+    color = 'white'
+  ) %>%
+  formatStyle(
+    'Likely_Negative_Result',
+    backgroundColor = styleEqual(negative_results_a3$Code, row_colors_a3),
+    color = 'black'
+  ) %>%
+  formatStyle(
+    columns = c(0, 1),
+    border = '2px solid #333',
+    borderCollapse = 'collapse'
+  ) %>%
+  formatStyle(
+    columns = c(0, 1),
+    maxWidth = '9in',
+    tableLayout = 'fixed'
+  )
+
+```

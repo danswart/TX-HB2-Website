@@ -1,0 +1,25 @@
+---
+title: "HB2 Section by Section"
+listing:
+  contents: "sections/*.qmd"
+  type: default
+  sort: "title asc"
+  categories: false
+format:
+  html:
+    toc: true
+    toc-float: true
+    page-layout: article
+    embed-resources: true
+    code-fold: true
+    code-summary: "Show the code"
+    code-tools: true
+    code-overflow: wrap
+    # css: "swart-20250327.css"
+    fig-width: 10
+    fig-height: 8
+    fig-align: center
+    html-math-method: katex
+    css: swart-20250327.css
+---
+
