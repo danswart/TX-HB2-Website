@@ -1,6 +1,6 @@
 ---
 title: "Texas HB2 Article 4: Special Education (Sections 4.01-4.15) - Incentives and Likely Results"
-author: "Dan Swart and Claude Sonnet 4.0"
+# author: "Dan Swart (with Claude Sonnet 4.0)"
 description: "Analysis covers Article 4 (Special Education) only - Sections 4.01 through 4.15. Analysis focuses on special education agency duties, compliance monitoring, eligibility criteria, interagency coordination, and residential placement oversight. Document spans pages 25-31 of legislative text."
 format:
     html:

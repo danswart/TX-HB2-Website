@@ -1,6 +1,6 @@
 ---
 title: "Texas HB2 Article 7: Sections 7.01-7.19 - Public Education Finance Changes"
-author: "Dan Swart and Claude Opus 4.0"
+# author: "Dan Swart with Claude Opus 4.0"
 description: "Analysis covers Article 7 Sections 7.01 through 7.19 only. Analysis focuses on facility reporting requirements, charter school funding modifications, district allotment changes, and commissioner authority expansions. Document excludes Section 8.01 and all subsequent content."
 format:
     html:

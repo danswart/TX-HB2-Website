@@ -1,6 +1,6 @@
 ---
 title: "Texas HB2 Article 4: Special Education (Sections 4.16-4.26) - Incentives and Likely Results"
-author: "Dan Swart and Claude Sonnet 4.0"
+# author: "Dan Swart (with Claude Sonnet 4.0)"
 description: "Analysis covers Article 4 (Special Education) only - Sections 4.16 through 4.26. Analysis focuses on community support services grants, hospital education funding, special education service groups, transition funding formulas, dyslexia program requirements, representative qualifications, and IEP facilitation programs. Document spans pages 32-36 of legislative text."
 format:
     html:

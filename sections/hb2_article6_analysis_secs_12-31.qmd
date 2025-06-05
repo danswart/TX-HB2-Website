@@ -1,6 +1,6 @@
 ---
 title: "Texas HB2 Article 6: Sections 6.12-6.31 - Incentives and Likely Results"
-author: "Dan Swart and Claude Opus 4.0"
+# author: "Dan Swart (with Claude Opus 4.0)"
 description: "Analysis covers Article 6 Sections 6.12 through 6.31 only. Analysis focuses on accountability system changes, industry certification requirements, funding modifications, and workforce data collection. Document excludes Section 7.01 and all subsequent content."
 format:
     html:

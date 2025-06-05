@@ -1,6 +1,6 @@
 ---
 title: "Texas HB2 Article 3: Rights of Public School Educators - Incentives and Likely Results"
-author: "Dan Swart and Claude Sonnet 4.0"
+# author: "Dan Swart (with Claude Sonnet 4.0)"
 description: "Analysis covers Article 3 (Rights of Public School Educators) only - Sections 3.01 through 3.15. Analysis focuses on educator employment policies, certification processes, contract protections, and classroom management rights. Document spans pages 19-25 of legislative text."
 format:
     html:

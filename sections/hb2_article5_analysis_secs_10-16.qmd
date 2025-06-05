@@ -1,6 +1,6 @@
 ---
 title: "Texas HB2 Article 5: Early Childhood Education (Sections 5.10-5.17) - Incentives and Likely Results"
-author: "Dan Swart and Claude Sonnet 4.0"
+# author: "Dan Swart (with Claude Sonnet 4.0)"
 description: "Analysis covers Article 5 (Early Childhood Education) Sections 5.10 through 5.17 only. Analysis focuses on early literacy and numeracy instruments, reading intervention programs, mathematics training requirements, supplementary supports programs, prekindergarten expansions, and early education reporting requirements. Document spans pages 59-66 of legislative text."
 format:
     html:

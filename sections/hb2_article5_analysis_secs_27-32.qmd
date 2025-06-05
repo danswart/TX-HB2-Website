@@ -1,6 +1,6 @@
 ---
 title: "Texas HB2 Article 5: Sections 5.27-5.32 - Incentives and Likely Results"
-author: "Dan Swart and Claude Sonnet 4.0"
+# author: "Dan Swart (with Claude Sonnet 4.0)"
 description: "Analysis covers Article 5 Sections 5.27 through 5.32 only. Analysis focuses on early education allotment distribution, literacy intervention funding, third grade supplementary supports, and various code repeals. Document spans pages 70-72 of legislative text."
 format:
     html:

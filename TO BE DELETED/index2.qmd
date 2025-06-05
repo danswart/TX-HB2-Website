@@ -1,0 +1,28 @@
+---
+title: "Texas HB2 Analysis Section by Section (2025)"
+image: txlegislature.jpg
+author: "Dan Swart, Trustee (with Claude 4.0)"
+about: # https://quarto.org/docs/websites/website-about.html
+  template: trestles
+output:
+  html:
+    toc: true
+    toc-float: true
+    page-layout: article
+    embed-resources: true
+    code-fold: true
+    code-summary: "Show the code"
+    code-tools: true
+    code-overflow: wrap
+    css: "swart-20250327.css"
+    fig-width: 10
+    fig-height: 8
+    fig-align: center
+    html-math-method: katex
+---
+
+## An Analysis of Senate Version of HB2 (2025) with Opinionated Commentary
+
+Expected to be signed into law by end of May
+
+

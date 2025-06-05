@@ -1,6 +1,6 @@
 ---
 title: "Texas HB2 Article 4: Special Education Funding and Services (Sections 4.50-4.65) - Incentives and Likely Results"
-author: "Dan Swart and Claude Sonnet 4.0"
+# author: "Dan Swart (with Claude Sonnet 4.0)"
 description: "Analysis covers Article 4 (Special Education) Sections 4.50 through 4.65 only. Analysis focuses on special education funding formulas, dyslexia program requirements, special transportation services, day placement programs, parent-directed services grants, regional day school programs, and various special education administrative requirements. Document spans pages 47-54 of legislative text."
 format:
     html:

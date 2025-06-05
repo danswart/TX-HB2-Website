@@ -1,6 +1,6 @@
 ---
 title: "Texas HB2 Article 6: Sections 6.01-6.11 - Incentives and Likely Results"
-author: "Dan Swart and Claude Opus 4.0"
+# author: "Dan Swart (with Claude Opus 4.0)"
 description: "Analysis covers Article 6 Sections 6.01 through 6.11 only. Analysis focuses on college, career, and military readiness provisions including new education goals, postsecondary outcomes tracking, counselor requirements, and assessment options. Document excludes Section 6.12 and all subsequent content."
 format:
     html:

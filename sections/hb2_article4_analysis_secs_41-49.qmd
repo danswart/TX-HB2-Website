@@ -1,6 +1,6 @@
 ---
 title: "Texas HB2 Article 4: Special Education Services for Deaf/Hard of Hearing and Visual Impairments (Sections 4.41-4.49) - Incentives and Likely Results"
-author: "Dan Swart and Claude Sonnet 4.0"
+# author: "Dan Swart (with Claude Sonnet 4.0)"
 description: "Analysis covers Article 4 (Special Education) Sections 4.41 through 4.49 only. Analysis focuses on language acquisition assessment, state plan requirements, visual impairment education mandates, Texas School funding adjustments, regional day school programs, and school offense complaint procedures. Document spans pages 40-47 of legislative text."
 format:
     html:

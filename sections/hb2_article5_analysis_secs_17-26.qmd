@@ -1,6 +1,6 @@
 ---
 title: "Texas HB2 Article 5: Sections 5.17-5.26 - Incentives and Likely Results"
-author: "Dan Swart and Claude Sonnet 4.0"
+# author: "Dan Swart (with Claude Sonnet 4.0)"
 description: "Analysis covers Article 5 Sections 5.17 through 5.26 only. Analysis focuses on prekindergarten teacher qualifications, resource campus requirements, open education resource programs, dyslexia screening modifications, regional reporting changes, and funding formula adjustments. Document spans pages 66-70 of legislative text."
 format:
     html:

@@ -1,6 +1,6 @@
 ---
 title: "Texas HB2 Article 5: Early Childhood Education (Sections 5.01-5.09) - Incentives and Likely Results"
-author: "Dan Swart and Claude Sonnet 4.0"
+# author: "Dan Swart (with Claude Sonnet 4.0)"
 description: "Analysis covers Article 5 (Early Childhood Education) Sections 5.01 through 5.09 only. Analysis focuses on open-enrollment charter school requirements, teacher literacy and mathematics achievement academies, school year planning grants, reading readiness assessments, early literacy instruments, and reading intervention programs. Document spans pages 55-59 of legislative text."
 format:
     html:

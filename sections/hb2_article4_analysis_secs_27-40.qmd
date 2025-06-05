@@ -1,6 +1,6 @@
 ---
 title: "Texas HB2 Article 4: Special Education (Sections 4.27-4.40) - Incentives and Likely Results"
-author: "Dan Swart and Claude Sonnet 4.0"
+# author: "Dan Swart (with Claude Sonnet 4.0)"
 description: "Analysis covers Article 4 (Special Education) only - Sections 4.27 through 4.40. Analysis focuses on parent-directed services programs, provider autonomy protections, IEP committee duties, commissioner determination finality, and dyslexia teacher training grants. Document spans pages 37-40 of legislative text."
 format:
     html:

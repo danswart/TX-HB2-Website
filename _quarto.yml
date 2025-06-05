@@ -2,17 +2,20 @@ project:
   type: website
 
 website:
-  title: "Home"
+  title: "HB2 Section by Section"
   open-graph: true # https://quarto.org/docs/websites/website-tools.html#open-graph
   page-footer: "No content, or portion thereof, represents an official position of any school district or school official"
   navbar:
+    background: primary
+    search: true
     left:
-      - text: HB2 Section by Section
-        href: hb2_section_by_section.qmd
+      - text: "Home"
+        href: index.qmd
 
 format:
   html:
-    theme: [trestles, swart-20250327.css]
-
+    theme: default
+    css: swart-20250327.css
+    # theme: [cerulean, swart-20250327.css]
 
 
